@@ -1,0 +1,3 @@
+macro holywater {
+    do ss AL_HOLYWATER
+}

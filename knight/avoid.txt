@@ -1,0 +1,29 @@
+# avoid.txt: Avoid certain players
+# WARNING: The commented players and IDs here are for iRO GMs/bot-hunters and are probably outdated.
+
+# Format: <name> (TAB(s)) <disconnect when in sight> <teleport when in sight> <disconnect on chat>
+[Players]
+
+[ID]
+# Same as above, but uses player IDs instead of names
+# There is no disconnect on chat for this section.
+3579757		1 0
+3599059		1 0
+3614513		1 0
+3618589		1 0
+3638699		1 0
+3628172		1 0
+3651089		1 0
+
+
+[Jobs]
+# Same as above, but uses player jobs instead of names
+# There is no disconnect on chat for this section.
+# Examples:
+# see https://github.com/OpenKore/openkore/blob/master/src/Globals.pm#L141
+#Acolyte	0 1
+#Priest		0 1
+#Monk		0 1
+#Thief		0 1
+#Assassin	0 1
+#Rogue		0 1

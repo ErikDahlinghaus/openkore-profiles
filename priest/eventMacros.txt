@@ -1,0 +1,21 @@
+!include tu_eventMacros.txt
+
+automacro TeleMVP {
+    MobNearDist /(Phreeoni|Orc Hero|Orc Lord|Gopinich|Pharaoh|Bloody Knight|Knight Of Abyss|Abysmal Knight|Mysteltainn)/ <15
+    timeout 1
+    call {
+        do tele
+    }
+}
+
+automacro unhide {
+    StatusActiveHandle EFST_HIDING
+    delay 3
+    call {
+        do ss TF_HIDING
+    }
+}
+
+macro holywater {
+    do ss AL_HOLYWATER
+}

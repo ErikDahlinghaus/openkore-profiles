@@ -1,0 +1,7 @@
+automacro masterTeleported {
+    console "My master teleported"
+    timeout 10
+    call {
+        do tele 2
+    }
+}

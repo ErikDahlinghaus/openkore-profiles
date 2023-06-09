@@ -1,0 +1,9 @@
+automacro Strawberry {
+    CurrentSP < 200
+    CheckOnAI auto, manual
+    disabled 1
+    InLockMap 1
+    call {
+        do is Strawberry
+    }
+}

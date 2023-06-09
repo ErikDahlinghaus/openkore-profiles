@@ -1,0 +1,30 @@
+automacro blessAnubis {
+    MobNearDist /Anubis/ < 7
+    timeout 60
+    priority 1
+    disabled 1
+    call {
+        do sm AL_BLESSING $.MobNearDistLastBinId 1
+    }
+}
+
+automacro silenceAnubis {
+    MobNearDist /Anubis/ < 7
+    timeout 60
+    priority 2
+    disabled 1
+    call {
+        do sm PR_LEXDIVINA $.MobNearDistLastBinId 10
+    }
+}
+
+automacro TUAnubis {
+    MobNearDist /Anubis/ < 7
+    timeout 1
+    priority 0
+    call {
+        do sm PR_TURNUNDEAD $.MobNearDistLastBinId 10
+        pause 1
+        do tele
+    }
+}

@@ -1,0 +1,80 @@
+#automacro waitOnPriest {
+#    PlayerNotNear /StapoRadio/
+#    call {
+#        lock waitOnPriest
+#        release foundPriest
+#        do conf route_randomWalk 0
+#        pause 15
+#        do follow StapoRadio
+#    }
+#}
+#
+#automacro foundPriest {
+#    PlayerNear /StapoRadio/
+#    call {
+#        lock foundPriest
+#        release waitOnPriest
+#        do conf route_randomWalk 1
+#        do follow stop
+#    }
+#}
+#
+automacro noPriest {
+    PlayerNotNear /StapoRadio/
+    timeout 60
+    disabled 0
+    call {
+        do conf route_randomWalk 0
+    }
+}
+
+automacro noPriestUpdateMapPos {
+    PlayerNotNear /StapoRadio/
+    ConfigKey route_randomWalk 0
+    timeout 60
+    disabled 0
+    call {
+        do south 1
+    }
+}
+
+automacro priestBack {
+    PlayerNear /StapoRadio/
+    ConfigKey route_randomWalk 0
+    timeout 10
+    delay 3
+    disabled 0
+    call {
+        do conf route_randomWalk 1
+    }
+}
+
+#automacro Lost_Follower {
+#    PlayerNotNear /StapoRadio/
+#    InCity 0
+#    timeout 30
+#    disabled 0
+#    call {
+#        if (&config(route_randomWalk) == 1) {
+#            release Found_Follower
+#            do conf route_randomWalk 0
+#        } elsif (&config(follow) == 0) {
+#            do follow StapoRadio
+#        } else {
+#            lock Lost_Follower
+#        }
+#    }
+#}
+#
+#automacro Found_Follower {
+#    PlayerNear /StapoRadio/
+#    timeout 10
+#    disabled 0
+#    call {
+#       lock Found_Follower
+#        release Lost_Follower
+#        do conf route_randomWalk 1
+#        do conf follow 0
+#        do conf followTarget none
+#    }
+#}

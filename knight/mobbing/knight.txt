@@ -1,0 +1,63 @@
+## Knight
+
+# If mobs are on screen, continue to walk
+# Stop if the number of mobs near you goes down
+# Continue when the number goes up
+# When number of mobs reaches threshold, ping priest
+# Begin route to priest
+# When priest is near < 3? being bowling bash ?
+# Priest try to hide
+# Try to keep mobs at a distance of 5?
+
+automacro StartMobbing {
+    SimpleHookEvent AI_pre
+    run-once 1
+    disabled 1
+    call {
+        $priestName = StapoRadio
+        $mobbing = 1
+    }
+}
+
+automacro WalkAround {
+    MobNearDist /.*/ < 5
+    timeout 2
+    disabled 1
+    call {
+        do c walkaround
+    }
+}
+
+automacro lookAtTarget {
+    MobNearDist /.*/ < 4
+    timeout 1
+    disabled 1
+    call {
+        $x1 = @arg ("$.pos", 1)
+        $y1 = @arg ("$.pos", 2)
+        $x2 = @arg ("$.MobNearDistLastPos", 1)
+        $y2 = @arg ("$.MobNearDistLastPos", 2)
+
+        if ($y2 < $y1) {
+            if ($x2 < $x1) {
+                do look 3 # southwest
+            } elsif ($x2 > $x1) {
+                do look 5 # southeast
+            } else {
+                do look 4 # south
+            }
+        } elsif ($y2 > $y1) {
+            if ($x2 < $x1) {
+                do look 1 # northwest
+            } elsif ($x2 > $x1) {
+                do look 7 # northeast
+            } else {
+                do look 0 # north
+            }
+        } elsif ($x2 > $x1) {
+            do look 6 # east
+        } else {
+            do look 2 # west
+        }
+    }
+}
