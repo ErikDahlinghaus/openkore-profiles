@@ -8,9 +8,20 @@ automacro TeleMVP {
     }
 }
 
+automacro hide {
+    StatusInactiveHandle EFST_HIDING
+    MobNearDist /.*/ < 3
+    MobNearCount > 2
+    PlayerNearDist /StapoRadio/ < 3
+    timeout 20
+    call {
+        do ss TF_HIDING
+    }
+}
+
 automacro unhide {
     StatusActiveHandle EFST_HIDING
-    delay 3
+    delay 2
     call {
         do ss TF_HIDING
     }
@@ -18,4 +29,13 @@ automacro unhide {
 
 macro holywater {
     do ss AL_HOLYWATER
+}
+
+automacro respawn {
+    PartyMsg /(respawn)/
+    call {
+        if ($.PartyMsgLastName eq "gururunt") {
+            do tele 2
+        }
+    }
 }

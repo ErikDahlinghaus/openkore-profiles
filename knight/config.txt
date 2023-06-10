@@ -16,12 +16,24 @@ useSelf_item Blue Herb, Grape, Orange, Royal Jelly, White Chocolate {
 	notWhileSitting 0
 	notInTown 0
 	timeout 0
-	disabled 0
+	disabled 1
 	whenPartyMembersNear
 	whenPartyMembersNearDist
 	inInventory
 	manualAI 0
 }
+
+useSelf_item Green Herb {
+	inInventory Green Herb > 5
+	timeout 1
+}
+
+useSelf_item Green Herb {
+	inInventory Green Herb
+	whenStatusActive Poisoned
+	timeout 1
+}
+
 
 useSelf_item Concentration Potion {
 	whenStatusInactive EFST_ATTHASTE_POTION1
@@ -44,7 +56,8 @@ useSelf_item Berserk Potion {
 	timeout 5
 }
 
-useSelf_item 569,507,512,516,517,519,528,501 {
+useSelf_item 569,507,512,516,517,519,528,501,508 {
+	hp < 100%
 	whenStatusInactive
 	inLockOnly
 	notWhileSitting
@@ -136,8 +149,8 @@ attackSkillSlot SM_PROVOKE {
 attackSkillSlot KN_BOWLINGBASH {
 	label attackSkillSlotBowlingBash
 	lvl 10
-	dist 1.5
-	maxDist 1.5
+	dist
+	maxDist
 	maxCastTime
 	minCastTime
 	hp
@@ -172,7 +185,7 @@ attackSkillSlot KN_BOWLINGBASH {
 	inLockOnly 1
 	notInTown
 	timeout 0
-	disabled 1
+	disabled 0
 	monsters
 	notMonsters
 	monstersCount
@@ -233,7 +246,7 @@ cartMaxWeight 7900
 itemsTakeGreed 0
 itemsCheckWeight 1
 
-lockMap gef_fild14
+lockMap mjolnir_05
 lockMap_x
 lockMap_y
 lockMap_randX
@@ -327,7 +340,7 @@ teleportAuto_item1
 teleportAuto_item2
 
 statsAddAuto 1
-statsAddAuto_list str 99
+statsAddAuto_list 84 agi
 statsAddAuto_dontUseBonus 1
 statsAdd_over_99 0
 
@@ -350,8 +363,6 @@ skillsAddAuto_list NV_BASIC 9, KN_TWOHANDQUICKEN 10, KN_RIDING 1, KN_AUTOCOUNTER
 
 master Asgards Glory
 server 0
-username
-password
 loginPinCode
 char 0
 
@@ -384,7 +395,6 @@ XKore_ID
 
 # It is not advised to set secureAdminPassword if you're using Xkore 2
 secureAdminPassword 1
-adminPassword asdacudsda
 callSign
 commandPrefix ;
 callSignGM 0
@@ -1105,7 +1115,6 @@ storageAuto_maxDistance
 storageAuto_npc_type 1
 storageAuto_type 0
 storageAuto_npc_steps c r1
-storageAuto_password
 storageAuto_keepOpen 0
 storageAuto_useChatCommand
 storageAuto_useItem 0

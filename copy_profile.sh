@@ -16,6 +16,7 @@ dir_name=$(basename "$source_dir")
 script_dir=$(dirname "$(realpath "$0")")
 
 # Copy the files to the script directory
+mkdir -p $script_dir/$dir_name/
 cp -R "$source_dir"/* "$script_dir/$dir_name/"
 
 # Path to the control.txt file

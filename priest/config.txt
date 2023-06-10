@@ -20,17 +20,14 @@ partySkill ALL_RESURRECTION {
 }
 
 useSelf_skill AL_HEAL {
-	lvl 3
-	sp > 19
+	sp > 40
 	hp < 80%
 	timout 0.5
 }
 
 partySkill AL_HEAL {
-	lvl 3
-	sp > 19
-	target_hp < 90%
-	timeout 2
+	sp > 40
+	target_hp < 80%
 	notPartyOnly 0
 	notInTown 0
 }
@@ -41,6 +38,7 @@ useSelf_skill AL_BLESSING {
 	sp > 100
 	inLockOnly 0
 	disabled 0
+	hp > 40%
 }
 
 useSelf_skill AL_INCAGI {
@@ -50,43 +48,52 @@ useSelf_skill AL_INCAGI {
 	sp > 100
 	inLockOnly 0
 	stopWhenHit 1
+	hp > 40%
 }
 
 partySkill AL_BLESSING {
 	target_whenStatusInactive EFST_BLESSING
-	timeout 180
+	timeout 2
 	sp > 100
 	inLockOnly 0
 	notPartyOnly 0
 	notInTown 0
 	disabled 0
+	hp > 40%
+	target_hp > 40%
 }
 
 partySkill AL_INCAGI {
 	target_whenStatusInactive EFST_INC_AGI
 	# target_whenStatusActive EFST_BLESSING
-	timeout 180
+	timeout 2
 	sp > 40
 	inLockOnly 0
 	notPartyOnly 0
 	notInTown 0
 	stopWhenHit 1
+	hp > 40%
+	target_hp > 40%
 }
 
 useSelf_skill PR_GLORIA {
 	whenStatusInactive EFST_GLORIA
 	timeout 5
 	inLockOnly 0
-	disabled 1
+	disabled 0
 	stopWhenHit 1
+	onAction follow
+	hp > 40%
 }
 
 useSelf_skill PR_MAGNIFICAT {
 	whenStatusInactive EFST_MAGNIFICAT
 	timeout 5
 	inLockOnly 0
-	disabled 1
+	disabled 0
 	stopWhenHit 1
+	onAction follow
+	hp > 40%
 }
 
 useSelf_skill PR_KYRIE {
@@ -96,7 +103,9 @@ useSelf_skill PR_KYRIE {
 	inLockOnly 0
 	notPartyOnly 0
 	notInTown 0
-	disabled 1
+	disabled 0
+	stopWhenHit 1
+	hp > 40%
 }
 
 partySkill PR_IMPOSITIO {
@@ -107,6 +116,8 @@ partySkill PR_IMPOSITIO {
 	notPartyOnly 0
 	notInTown 0
 	disabled 0
+	hp > 40%
+	target_hp > 40%
 }
 
 useSelf_skill PR_IMPOSITIO {
@@ -122,12 +133,13 @@ useSelf_skill PR_IMPOSITIO {
 partySkill PR_KYRIE {
 	target_whenStatusInactive EFST_KYRIE
 	sp > 40
-	target_hp < 80%
 	inLockOnly 0
 	notPartyOnly 0
 	notInTown 0
-	disabled 1
-	stopWhenHit
+	disabled 0
+	stopWhenHit 1
+	hp > 40%
+	target_hp > 40%
 }
 
 partySkill PR_ASPERSIO {
@@ -320,8 +332,6 @@ route_reAddMissingPortals 1
 
 master Asgards Glory
 server 0
-username
-password
 loginPinCode
 char 0
 
@@ -354,7 +364,6 @@ XKore_ID
 
 # It is not advised to set secureAdminPassword if you're using Xkore 2
 secureAdminPassword 1
-adminPassword shuclapi
 callSign
 commandPrefix ;
 callSignGM 0
@@ -1108,7 +1117,6 @@ storageAuto_maxDistance
 storageAuto_npc_type 1
 storageAuto_type 0
 storageAuto_npc_steps
-storageAuto_password
 storageAuto_keepOpen 0
 storageAuto_useChatCommand
 storageAuto_useItem 0

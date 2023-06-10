@@ -90,11 +90,11 @@ Thief Bug's Egg 0 0 0
 
 ##### Plants #####
 Black Mushroom 0 0 0
-Blue Plant 0 0 0
+Blue Plant 1 # 1079
 Green Plant 0 0 0
 Red Mushroom 0 0 0
 Red Plant 0 0 0
-Shining Plant 0 0 0
+Shining Plant 1 # 1083
 White Plant 0 0 0
 Yellow Plant 0 0 0
 

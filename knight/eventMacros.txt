@@ -1,5 +1,5 @@
 !include mobbing/knight.txt
-!include mobbing/waitOnPriest.txt
+# !include mobbing/waitOnPriest.txt
 !include mobbing/itemsSkills.txt
 
 automacro TeleMVP {
