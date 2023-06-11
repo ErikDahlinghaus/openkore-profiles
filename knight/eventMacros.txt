@@ -1,9 +1,10 @@
 !include mobbing/knight.txt
-# !include mobbing/waitOnPriest.txt
+!include mobbing/waitOnPriest.txt
 !include mobbing/itemsSkills.txt
+# !include mobbing/bowlingBash.txt
 
 automacro TeleMVP {
-    MobNearDist /(Phreeoni|Orc Hero|Orc Lord|Gopinich|Pharaoh|Bloody Knight|Knight Of Abyss|Abysmal Knight|Mysteltainn)/ <15
+    MobNearDist /(Phreeoni|Orc Hero|Orc Lord|Gopinich|Pharaoh|Bloody Knight|Knight Of Abyss|Abysmal Knight|Mysteltainn)/ <7
     timeout 1
     call {
         do tele
@@ -24,11 +25,7 @@ automacro dropItems {
     InInventory "Axe [3]" > 0
     InInventory "Icicle Whip [0]" > 0
     call {
-        $id = &inventory($.InInventoryLast)
+        $id = &inventory ($.InInventoryLast)
         do drop $id
     }
-}
-
-macro makeOri {
-    do talknpc 63 69 c r0
 }

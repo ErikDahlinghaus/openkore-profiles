@@ -1,3 +1,4 @@
 macro holywater {
+    do move 121 92 pay_arche
     do ss AL_HOLYWATER
 }

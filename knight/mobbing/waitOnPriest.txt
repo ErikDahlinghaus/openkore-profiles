@@ -31,10 +31,11 @@ automacro noPriest {
 automacro noPriestUpdateMapPos {
     PlayerNotNear /StapoRadio/
     ConfigKey route_randomWalk 0
-    timeout 60
+    timeout 10
     disabled 0
     call {
         do south 1
+        do north 1
     }
 }
 

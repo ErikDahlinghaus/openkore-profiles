@@ -1,0 +1,26 @@
+automacro testMonsters {
+    timeout 4
+    MobNear /.*/
+    call {
+        do p count: monstersCount() near: monstersNearCount()
+    }
+}
+
+sub monstersCount {
+    return scalar(@$monstersList);
+}
+
+sub monstersNearCount {
+    # my $consideredNear = 3;
+    my $count = 0;
+	foreach my $monster (@$monstersList) {
+        # my $dist = distance($char->{pos}, $monster{pos});
+        # message $monster->{name} . " " . $dist . "\n";
+        # next unless ( $dist lt $consideredNear );
+        # $count++;
+
+        my $canReach = canReachMeleeAttack($char->{pos}, $monster->{pos});
+        $count += $canReach;
+	}
+    return $count;
+}

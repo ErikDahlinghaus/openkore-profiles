@@ -1,7 +1,7 @@
-automacro masterTeleported {
-    console "My master teleported"
-    timeout 10
-    call {
-        do tele 2
-    }
+macro makeOri {
+    do talknpc 63 69 c r0
+}
+
+macro makeElu {
+    do talknpc 63 69 c r1
 }

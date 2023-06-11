@@ -53,7 +53,7 @@ useSelf_skill AL_INCAGI {
 
 partySkill AL_BLESSING {
 	target_whenStatusInactive EFST_BLESSING
-	timeout 2
+	timeout 180
 	sp > 100
 	inLockOnly 0
 	notPartyOnly 0
@@ -66,7 +66,7 @@ partySkill AL_BLESSING {
 partySkill AL_INCAGI {
 	target_whenStatusInactive EFST_INC_AGI
 	# target_whenStatusActive EFST_BLESSING
-	timeout 2
+	timeout 180
 	sp > 40
 	inLockOnly 0
 	notPartyOnly 0
@@ -144,7 +144,7 @@ partySkill PR_KYRIE {
 
 partySkill PR_ASPERSIO {
 	target_whenStatusInactive EFST_ASPERSIO
-	inMap gl_knt02, gef_dun02
+	inMap gl_knt02, gef_dun02, gl_in01
 }
 
 useSelf_skill AL_BLESSING {
@@ -164,8 +164,8 @@ attackSkillSlot AL_DECAGI {
 }
 
 useSelf_skill TF_HIDING {
-	timeout 30
-	aggressives > 2
+	timeout 5
+	aggressives > 1
 	whenStatusInactive EFST_HIDING
 	whenPartyMembersNear > 0
 	disabled 1
@@ -506,8 +506,8 @@ tankModeTarget
 
 
 
-dealAuto 0
-dealAuto_names
+dealAuto 1
+dealAuto_names gururunt
 partyAuto 0
 partyAutoShare 0
 partyAutoShareItem 0

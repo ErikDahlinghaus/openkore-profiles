@@ -1,7 +1,7 @@
-useSelf_item Blue Herb, Grape, Orange, Royal Jelly, White Chocolate {
+useSelf_item Blue Herb, Grape, Orange, Royal Jelly, White Chocolate, Strawberry {
 	label useSelfItemSP
 	hp
-	sp < 70%
+	sp < 40%
 	onAction
 	whenStatusActive
 	whenStatusInactive
@@ -131,7 +131,7 @@ attackSkillSlot SM_PROVOKE {
 	timeout 0.5
 	disabled 0
 	monsters
-	notMonsters
+	notMonsters Ant Egg
 	monstersCount
 	maxAttempts 2
 	maxUses 1
@@ -144,6 +144,22 @@ attackSkillSlot SM_PROVOKE {
 	inInventory
 	isSelfSkill 0
 	manualAI 0
+}
+
+attackSkillSlot SM_MAGNUM {
+	monsters Ant Egg
+	timeout 1
+	dist 1
+	maxUses 1
+}
+
+attackSkillSlot SM_MAGNUM {
+	timeout 1
+	dist 1
+	maxUses 2
+	aggressives > 2
+	inLockOnly 1
+	disabled 1
 }
 
 attackSkillSlot KN_BOWLINGBASH {
@@ -187,7 +203,7 @@ attackSkillSlot KN_BOWLINGBASH {
 	timeout 0
 	disabled 0
 	monsters
-	notMonsters
+	notMonsters Orc Archer
 	monstersCount
 	maxAttempts
 	maxUses 2
@@ -246,9 +262,9 @@ cartMaxWeight 7900
 itemsTakeGreed 0
 itemsCheckWeight 1
 
-lockMap mjolnir_05
-lockMap_x
-lockMap_y
+lockMap
+lockMap_x 56
+lockMap_y 120
 lockMap_randX
 lockMap_randY
 

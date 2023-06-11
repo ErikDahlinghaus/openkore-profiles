@@ -235,3 +235,8 @@ Yellow Plant 0 0 0
 1098 -1 #Anubis
 1144 0 #Marse
 1208 1 0 1 #Wanderer
+1281 0 #Sage Worm
+1160 0 #Piere
+1095 0 #Andre
+1105 0 #Deniro
+1419 0 #Familiar

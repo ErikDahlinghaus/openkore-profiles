@@ -9,33 +9,51 @@ automacro TeleMVP {
 }
 
 automacro hide {
+    SimpleHookEvent packet_attack
     StatusInactiveHandle EFST_HIDING
-    MobNearDist /.*/ < 3
-    MobNearCount > 2
-    PlayerNearDist /StapoRadio/ < 3
-    timeout 20
+    timeout 5
+    disabled 1
     call {
-        do ss TF_HIDING
+        do p nameIDForActor($.SimpleHookEventLastTargetID)
+        #if ( nameIDForActor($.SimpleHookEventLastTargetID) eq myID() && playersCount() > 0) {
+        #    do ss TF_HIDING
+        #}
     }
 }
 
 automacro unhide {
     StatusActiveHandle EFST_HIDING
-    delay 2
+    delay 1
     call {
         do ss TF_HIDING
     }
 }
 
-macro holywater {
-    do ss AL_HOLYWATER
+automacro respawn {
+    PartyMsg /respawn/
+    call {
+        do tele 2
+    }
 }
 
-automacro respawn {
-    PartyMsg /(respawn)/
-    call {
-        if ($.PartyMsgLastName eq "gururunt") {
-            do tele 2
-        }
-    }
+sub nameIDForActor {
+    my $sourceID = shift;
+    return Actor::get($sourceID)->{nameID}
+}
+
+sub myID {
+    return $char->{nameID};
+}
+
+sub playersCount {
+    return scalar(@$playersList);
+}
+
+sub monstersCount {
+    return scalar(@$monstersList);
+}
+
+sub aggressivesCount {
+    my $aggressivesCount = ai_getAggressives();
+    return $aggressivesCount;
 }
