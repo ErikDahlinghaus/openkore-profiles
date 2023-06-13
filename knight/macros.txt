@@ -1,7 +1,14 @@
 macro makeOri {
+    do move 60 64 prt_in
     do talknpc 63 69 c r0
 }
 
 macro makeElu {
+    do move 60 64 prt_in
     do talknpc 63 69 c r1
+}
+
+macro dropGuard {
+    $id = @inventory (Guard)
+    do drop $id
 }

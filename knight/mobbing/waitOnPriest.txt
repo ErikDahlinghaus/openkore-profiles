@@ -21,7 +21,8 @@
 #
 automacro noPriest {
     PlayerNotNear /StapoRadio/
-    timeout 60
+    timeout 30
+    InCity 0
     disabled 0
     call {
         do conf route_randomWalk 0
@@ -31,7 +32,8 @@ automacro noPriest {
 automacro noPriestUpdateMapPos {
     PlayerNotNear /StapoRadio/
     ConfigKey route_randomWalk 0
-    timeout 10
+    timeout 5
+    InCity 0
     disabled 0
     call {
         do south 1
@@ -42,8 +44,7 @@ automacro noPriestUpdateMapPos {
 automacro priestBack {
     PlayerNear /StapoRadio/
     ConfigKey route_randomWalk 0
-    timeout 10
-    delay 3
+    timeout 1
     disabled 0
     call {
         do conf route_randomWalk 1

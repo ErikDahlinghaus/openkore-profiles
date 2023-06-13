@@ -104,7 +104,7 @@ ai_transfer_items 0.15
 # Delay between map_loaded and send ignoreAll command
 ai_ignoreAll 3
 
-ai_follow_lost_end 10
+ai_follow_lost_end 1
 ai_getInfo 2
 ai_thanks_set 8
 ai_dealAuto 3

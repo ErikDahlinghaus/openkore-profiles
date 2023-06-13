@@ -4,10 +4,18 @@
 # !include mobbing/bowlingBash.txt
 
 automacro TeleMVP {
-    MobNearDist /(Phreeoni|Orc Hero|Orc Lord|Gopinich|Pharaoh|Bloody Knight|Knight Of Abyss|Abysmal Knight|Mysteltainn)/ <7
+    MobNearDist /(Gopinich|Mysteltainn)/ <20
     timeout 1
     call {
         do tele
+    }
+}
+
+automacro attackGoodMinibosses {
+    MobNear /(Angeling|Deviling)/
+    timeout 1
+    call {
+        do a $.MobNearLastBinId
     }
 }
 
@@ -20,10 +28,12 @@ automacro mimic {
 }
 
 automacro dropItems {
+    SimpleHookEvent "target_died"
     InInventory "Falchion [4]" > 0
     InInventory "Stiletto [3]" > 0
     InInventory "Axe [3]" > 0
-    InInventory "Icicle Whip [0]" > 0
+    InInventory "Icicle Whip" > 0
+    InInventory "Guard" > 0
     call {
         $id = &inventory ($.InInventoryLast)
         do drop $id

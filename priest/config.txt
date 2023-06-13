@@ -144,7 +144,12 @@ partySkill PR_KYRIE {
 
 partySkill PR_ASPERSIO {
 	target_whenStatusInactive EFST_ASPERSIO
-	inMap gl_knt02, gef_dun02, gl_in01
+	inMap gl_knt01, gl_knt02, gef_dun01, gef_dun02, gl_in01, gl_cas01, gl_cas02
+}
+
+partySkill PR_ASPERSIO {
+	target_whenStatusInactive EFST_ASPERSIO
+	monsters Deviling
 }
 
 useSelf_skill AL_BLESSING {
@@ -159,8 +164,10 @@ partySkill AL_BLESSING {
 
 attackSkillSlot AL_DECAGI {
 	maxUses 1
-	disabled 1
+	disabled 0
 	stopWhenHit 1
+	monsters Abysmal Knight, Rideword
+	hp > 99%
 }
 
 useSelf_skill TF_HIDING {
@@ -309,7 +316,7 @@ route_randomWalk_inTown 0
 route_randomWalk_maxRouteTime 75
 route_maxWarpFee
 route_maxNpcTries 5
-route_teleport 0
+route_teleport 1
 route_teleport_minDistance 150
 route_teleport_maxTries 20
 route_teleport_notInMaps

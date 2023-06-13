@@ -332,7 +332,7 @@ Animal Poop 0 0 1
 7062 0 0 1 # Broken Turtle Shell
 1042 0 0 1 # Bug Leg
 7122 0 0 1 # Burning Hair
-7097 0 0 1 # Burning Heart
+7097 0 1 0 # Burning Heart
 7120 0 0 1 # Burning Horseshoe
 7068 0 0 1 # Burnt Tree
 952 0 0 1 # Cactus Needle
@@ -1760,3 +1760,4 @@ Spearman Scroll 10 0 0 0
 504 200 0 0 #White Potion
 511 0 1 0 # Green Herb
 713 0 1 0 # Empty Bottle
+7216 0 1 0 #Red Muffler

@@ -1,7 +1,7 @@
 !include tu_eventMacros.txt
 
 automacro TeleMVP {
-    MobNearDist /(Phreeoni|Orc Hero|Orc Lord|Gopinich|Pharaoh|Bloody Knight|Knight Of Abyss|Abysmal Knight|Mysteltainn)/ <15
+    MobNearDist /(Gopinich|Mysteltainn)/ <20
     timeout 1
     call {
         do tele
