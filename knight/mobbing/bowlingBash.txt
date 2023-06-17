@@ -1,8 +1,13 @@
-automacro testMonsters {
-    timeout 4
+automacro bowlingBashMonsters {
+    timeout 2
     MobNear /.*/
     call {
-        do p count: monstersCount() near: monstersNearCount()
+        $count = monstersNearCount()
+        do p Total: monstersCount() AttackDist: $count BBDist: monstersBBCount()
+        if ( $count > 2 ) {
+            do p Bowling Bash!!
+            do sm $.MobNearLastBinId
+        }
     }
 }
 
@@ -14,13 +19,28 @@ sub monstersNearCount {
     # my $consideredNear = 3;
     my $count = 0;
 	foreach my $monster (@$monstersList) {
-        # my $dist = distance($char->{pos}, $monster{pos});
-        # message $monster->{name} . " " . $dist . "\n";
-        # next unless ( $dist lt $consideredNear );
-        # $count++;
-
         my $canReach = canReachMeleeAttack($char->{pos}, $monster->{pos});
         $count += $canReach;
 	}
     return $count;
+}
+
+sub monstersBBCount {
+    my $count = 0;
+	foreach my $monster (@$monstersList) {
+        my $canReach = isBowlingBashDistance($char->{pos}, $monster->{pos});
+        $count += $canReach;
+	}
+    return $count;
+}
+
+sub isBowlingBashDistance {
+	my ($actor_pos, $target_pos) = @_;
+	my ($diag, $orto) = Utils::specifiedBlockDistance($actor_pos, $target_pos);
+
+	if ($orto <= 4) {
+		return 1;
+	} else {
+		return 0;
+	}
 }

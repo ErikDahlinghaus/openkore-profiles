@@ -11,6 +11,15 @@ useSelf_item 517 {
 	hp < 100%
 }
 
+buyAuto Fly Wing {
+	npc prontera 147 175
+	npc_steps b
+	distance 3
+	minAmount 2
+	maxAmount 30
+	disabled 1
+}
+
 useSelf_item 507,512,515,516,517,519,528,569,501 {
 	hp < 60%
 }
@@ -22,7 +31,6 @@ partySkill ALL_RESURRECTION {
 useSelf_skill AL_HEAL {
 	sp > 40
 	hp < 80%
-	timout 0.5
 }
 
 partySkill AL_HEAL {
@@ -30,6 +38,7 @@ partySkill AL_HEAL {
 	target_hp < 80%
 	notPartyOnly 0
 	notInTown 0
+	timeout 2
 }
 
 useSelf_skill AL_BLESSING {
@@ -76,6 +85,12 @@ partySkill AL_INCAGI {
 	target_hp > 40%
 }
 
+partySkill AL_INCAGI {
+	target_whenStatusActive EFST_DEC_AGI
+	hp > 40%
+	target_hp > 40%
+}
+
 useSelf_skill PR_GLORIA {
 	whenStatusInactive EFST_GLORIA
 	timeout 5
@@ -88,7 +103,7 @@ useSelf_skill PR_GLORIA {
 
 useSelf_skill PR_MAGNIFICAT {
 	whenStatusInactive EFST_MAGNIFICAT
-	timeout 5
+	timeout 10
 	inLockOnly 0
 	disabled 0
 	stopWhenHit 1
@@ -105,7 +120,8 @@ useSelf_skill PR_KYRIE {
 	notInTown 0
 	disabled 0
 	stopWhenHit 1
-	hp > 40%
+	hp > 90%
+	target_timeout 20
 }
 
 partySkill PR_IMPOSITIO {
@@ -118,6 +134,7 @@ partySkill PR_IMPOSITIO {
 	disabled 0
 	hp > 40%
 	target_hp > 40%
+	target_timeout 60
 }
 
 useSelf_skill PR_IMPOSITIO {
@@ -133,18 +150,21 @@ useSelf_skill PR_IMPOSITIO {
 partySkill PR_KYRIE {
 	target_whenStatusInactive EFST_KYRIE
 	sp > 40
+	timeout 10
 	inLockOnly 0
 	notPartyOnly 0
 	notInTown 0
 	disabled 0
 	stopWhenHit 1
-	hp > 40%
-	target_hp > 40%
+	hp > 90%
+	target_hp > 90%
 }
 
 partySkill PR_ASPERSIO {
+	label partySkillAspersio
 	target_whenStatusInactive EFST_ASPERSIO
-	inMap gl_knt01, gl_knt02, gef_dun01, gef_dun02, gl_in01, gl_cas01, gl_cas02
+	inMap gl_knt01, gl_knt02, gef_dun01, gef_dun02, gl_in01, gl_cas01, gl_cas02, nif_fild02
+	target_timeout 180
 }
 
 partySkill PR_ASPERSIO {
@@ -178,6 +198,16 @@ useSelf_skill TF_HIDING {
 	disabled 1
 }
 
+partySkill PR_STRECOVERY {
+	target_whenStatusActive Frozen, Stunned, Stonecursed
+	timeout 0.5
+}
+
+attackSkillSlot PR_LEXAETERNA {
+	maxUses 1
+	timeout 0.5
+}
+
 cmdOnLogin
 
 dcOnDeath 0
@@ -185,12 +215,12 @@ dcOnDeath 0
 
 # Support
 attackAuto -1
-attackAuto_party 2
+attackAuto_party 0
 itemsTakeAuto 0
 itemsTakeAuto_party 0
 route_randomWalk 0
 BetterWalkPlan 0
-attackAuto_followTarget 0
+attackAuto_followTarget 2
 attackAuto_inLockOnly 0
 
 # attackAuto 2
@@ -288,7 +318,7 @@ teleportAuto_onlyWhenSafe 0
 teleportAuto_maxDmg 0
 teleportAuto_maxDmgInLock 0
 teleportAuto_deadly 1
-teleportAuto_useSkill 1
+teleportAuto_useSkill 0
 teleportAuto_useChatCommand
 teleportAuto_allPlayers 0
 teleportAuto_notPlayers
@@ -316,7 +346,7 @@ route_randomWalk_inTown 0
 route_randomWalk_maxRouteTime 75
 route_maxWarpFee
 route_maxNpcTries 5
-route_teleport 1
+route_teleport 0
 route_teleport_minDistance 150
 route_teleport_maxTries 20
 route_teleport_notInMaps
@@ -1109,8 +1139,8 @@ buyAuto {
 	minBase
 }
 
-sellAuto 1
-sellAuto_npc cmd_in01 79 182
+sellAuto 0
+sellAuto_npc
 sellAuto_standpoint
 sellAuto_distance 3
 sellAuto_maxDistance

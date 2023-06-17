@@ -1,15 +1,5 @@
-equipAuto handsangeling {
-	rightHand [NONE]
-	onAction attack
-	monsters Angeling
-}
-
-equipAuto vvsice {
-	rightHand +5 VVS Claymore [Ice]
-	onAction attack
-	notMonsters Angeling
-}
-
+alias_dontWaitForPriest eventMacro disable noPriest ;;eventMacro disable noPriestUpdateMapPos ;;eventMacro disable priestBack ;;conf route_randomWalk 1
+alias_waitForPriest eventMacro enable noPriest ;;eventMacro enable noPriestUpdateMapPos ;;eventMacro enable priestBack ;;conf route_randomWalk 1
 
 useSelf_item Blue Herb, Grape, Orange, Royal Jelly, White Chocolate, Strawberry {
 	label useSelfItemSP
@@ -71,7 +61,7 @@ useSelf_item Berserk Potion {
 	timeout 5
 }
 
-useSelf_item 569,507,512,516,517,519,528,501,508 {
+useSelf_item 569,507,512,516,517,519,528,501,508,Meat {
 	hp < 100%
 	inLockOnly
 	notWhileSitting
@@ -83,15 +73,6 @@ useSelf_item White Potion {
 	inLockOnly 1
 	notWhileSitting 1
 }
-
-attackSkillSlot SM_BASH {
-	monsters Hill Wind
-	maxUses 1
-	dist 1
-	maxDist 1
-	sp > 30%
-}
-
 
 attackSkillSlot SM_BASH {
 	label attackSkillSlotBash
@@ -132,7 +113,7 @@ attackSkillSlot SM_BASH {
 }
 
 attackSkillSlot SM_PROVOKE {
-	monsters Lava Golem
+	monsters Lava Golem, Ice Titan
 	maxAttempts 4
 	maxUses 1
 	target_whenStatusInactive EFST_PROVOKE
@@ -197,6 +178,7 @@ attackSkillSlot KN_BOWLINGBASH {
 	timeout 2
 	monstersCount > 7
 	inLockOnly 1
+	disabled
 }
 
 attackSkillSlot KN_BOWLINGBASH {
@@ -233,6 +215,7 @@ attackSkillSlot KN_BOWLINGBASH {
 	spirit
 	amuletType
 	aggressives > 2
+	partyAggressives > 4
 	previousDamage
 	stopWhenHit
 	inLockOnly 1
@@ -300,14 +283,14 @@ cartMaxWeight 7900
 itemsTakeGreed 0
 itemsCheckWeight 1
 
-lockMap mag_dun01
+lockMap gef_dun02
 lockMap_x
 lockMap_y
 lockMap_randX
 lockMap_randY
 
-sitAuto_hp_lower 0
-sitAuto_hp_upper 0
+sitAuto_hp_lower 1
+sitAuto_hp_upper 40
 sitAuto_sp_lower 0
 sitAuto_sp_upper 0
 sitAuto_follow 0
@@ -1129,7 +1112,7 @@ buyAuto Fly Wing {
 	npc_steps b
 	distance 3
 	minAmount 2
-	maxAmount 100
+	maxAmount 60
 }
 
 sellAuto 1
@@ -1171,8 +1154,8 @@ getAuto {
 }
 
 getAuto Berserk Potion {
-	minAmount 2
-	maxAmount 20
+	minAmount 1
+	maxAmount 10
 }
 
 ######## Debugging options; only useful for developers ########

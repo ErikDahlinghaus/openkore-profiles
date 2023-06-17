@@ -1,4 +1,4 @@
-!include tu_eventMacros.txt
+# !include tu_eventMacros.txt
 
 automacro TeleMVP {
     MobNearDist /(Gopinich|Mysteltainn)/ <20
@@ -6,6 +6,37 @@ automacro TeleMVP {
     call {
         do tele
     }
+}
+
+automacro anubis {
+    MobNearDist /Anubis/ < 7
+    timeout 60
+    call {
+        do sm 76 $.MobNearDistLastBinId
+    }
+}
+
+automacro lex {
+    PlayerNear /gururunt/
+    timeout 4
+    delay 1
+    call {
+        $targetId = activeTarget($.PlayerNearLastBinId)
+        if ($targetId != undef) {
+            do sm PR_LEXAETERNA $targetId
+        }
+    }
+    disabled 1
+}
+
+sub activeTarget {
+    foreach my $monster (@$monstersList) {
+        if (keys %{$monster->{dmgFromPlayer}}) {
+            message $monster->{binID} . "\n";
+            return $monster->{binID};
+        }
+	}
+    return undef
 }
 
 automacro hide {
@@ -33,6 +64,13 @@ automacro respawn {
     PartyMsg /respawn/
     call {
         do tele 2
+    }
+}
+
+automacro tele {
+    PartyMsg /tele/
+    call {
+        do tele
     }
 }
 

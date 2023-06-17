@@ -231,8 +231,8 @@ Yellow Plant 0 0 0
 
 1116 0 #Eggyra
 1067 1 # Cornutus
-1142 -1 #Marine Sphere
-1098 -1 #Anubis
+1142 1 # Marine Sphere
+1098 0 # Anubis
 1144 0 #Marse
 1208 1 0 1 #Wanderer
 1281 0 #Sage Worm
@@ -240,8 +240,7 @@ Yellow Plant 0 0 0
 1095 0 #Andre
 1105 0 #Deniro
 1419 0 #Familiar
-1077 -1 #Poison Spore
-1031 0 #Poporing
+1077 0 # Poison Spore
 1036 0 # Ghoul
 1015 -1 #Zombie
 1130 0 #Jakk
@@ -250,3 +249,6 @@ Yellow Plant 0 0 0
 hunterfly 1 #
 1781 -1 #Drosera
 1368 -1 #Geographer
+bomb sphere 1 #
+1195 0 #Rideword
+1242 0 #Marin
